@@ -1,0 +1,19 @@
+{
+  "name": "jsml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stdlib/stdlib": "^0.0.94",
+    "@tensorflow/tfjs": "^3.6.0",
+    "ml-cart": "^2.0.2",
+    "ml-dataset-iris": "^1.1.1",
+    "ml-kmeans": "^5.0.0",
+    "node-nlp": "^4.22.1"
+  }
+}
