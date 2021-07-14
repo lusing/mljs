@@ -12,6 +12,7 @@
     "@stdlib/stdlib": "^0.0.94",
     "@tensorflow/tfjs": "^3.6.0",
     "@tensorflow/tfjs-node": "^3.6.1",
+    "@tensorflow/tfjs-node-gpu": "^3.6.1",
     "ml-cart": "^2.0.2",
     "ml-dataset-iris": "^1.1.1",
     "ml-kmeans": "^5.0.0",
