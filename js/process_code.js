@@ -1,11 +1,13 @@
 const fs = require("fs")
 const path = require("path")
 
-let root = path.join(__dirname)
+let root = path.join("./");
+
+console.log(root);
 
 readDirSync(root)
 function readDirSync(path){
-    var pa = fs.readdirSync(path);
+    let pa = fs.readdirSync(path);
     pa.forEach(function(ele,index){
         var info = fs.statSync(path+"/"+ele)
         if(info.isDirectory()){
