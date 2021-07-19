@@ -19,6 +19,7 @@ async function walk_dir(path) {
             }else if(dirent.isFile()){
                 if(isType(dirent.name,['.js','.css','.jsx'])){
                     const str1 = 'cat '+path+'/'+dirent.name + ' >> bundle.js'+"\n";
+                    console.log(str1);
                     await fs.appendFile('file.sh',str1);
                 }
             }
