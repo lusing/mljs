@@ -42,7 +42,11 @@ async function read_list(){
             if(fs2.existsSync(dir_name)){
                 console.log(dir_name+' existed');
                 process.chdir(path.join(current_dir,dir_name));
-                childProcess.execSync('git pull');
+                try{
+                    childProcess.execSync('git pull');
+                }catch(error2){
+                    console.error(error2);
+                }
                 process.chdir(current_dir);
             }
             const cmd = 'git clone '+str1;
