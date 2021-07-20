@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const _ = require('lodash');
+const path = require('path');
 
 function isType(filename, file_types){
     for (const filetype of file_types){
