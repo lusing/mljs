@@ -32,9 +32,10 @@ async function walk_dir(path2) {
                 await walk_dir(path.join(path2,dirent.name));
             }else if(dirent.isFile()){
                 if(isType(dirent.name,['.js','.css','.jsx'])){
-                    await copy_file(dirent.name,"bundle.xjs");
+                    let file_name = path.join(path2,dirent.name);
+                    await copy_file(file_name,"bundle.xjs");
                     //const str1 = 'cat '+path2+'/'+dirent.name + ' >> bundle.js'+"\n";
-                    console.log(dirent.name+' had written to bundle.xjs');
+                    console.log(file_name+' had written to bundle.xjs');
                     //await fs.appendFile('file.sh',str1);
                 }
             }
