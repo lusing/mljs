@@ -28,6 +28,19 @@ const process = require('process');
 
 const list_file = 'js.list';
 
+function git_pull(){
+
+    for(let i=0;i<10;i++){
+        try{
+            childProcess.execSync('git pull');
+            return;
+        }catch(error2){
+            console.error(error2);
+            continue;
+        }
+    }
+}
+
 async function read_list(){
     const promise1 = fs.readFile(list_file);
 
@@ -42,17 +55,13 @@ async function read_list(){
             if(fs2.existsSync(dir_name)){
                 console.log(dir_name+' existed');
                 process.chdir(path.join(current_dir,dir_name));
-                try{
-                    childProcess.execSync('git pull');
-                }catch(error2){
-                    console.error(error2);
-                }
+                git_pull();
                 process.chdir(current_dir);
             }
             const cmd = 'git clone '+str1;
             console.log(cmd);
-            //result2 = childProcess.execSync(cmd);
-            //console.log(result2.toString());
+            result2 = childProcess.execSync(cmd);
+            console.log(result2.toString());
         }
     }
 }
