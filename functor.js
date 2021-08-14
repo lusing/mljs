@@ -42,13 +42,3 @@ MayBe.prototype.map = function(fn){
     return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value)); 
 }
 
-
-function launch(spma, spmb){
-    return [spma,spmb];
-}
-
-let launch2 = function(spmb){
-    return launch("21000",spmb);
-}
-
-console.log(launch2("22000"));
