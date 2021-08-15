@@ -42,3 +42,12 @@ MayBe.prototype.map = function(fn){
     return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value)); 
 }
 
+MayBe.prototype.join = function () {
+    return this.isNothing() ? MayBe.of(null) : this.value;
+}
+
+let joinExample = MayBe.of(MayBe.of(5));
+console.log(joinExample);
+
+let joinResult = joinExample.join();
+console.log(joinResult);
