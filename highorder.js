@@ -82,7 +82,9 @@ let factorial = (n) => {
 
 const memorized = (fn) => {
     const lookupTable = {};
-    return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg));
+    return (arg) => {
+        lookupTable[arg] || (lookupTable[arg] = fn(arg));
+    }
 }
 
 let fastFact = memorized(
@@ -90,7 +92,9 @@ let fastFact = memorized(
         if (n<=0){
             return 1;
         }else{
-            return fastFact(n-1);
+            return n * fastFact(n-1);
         }
     }
 );
+
+console.log(fastFact(10));
