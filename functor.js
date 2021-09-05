@@ -46,6 +46,15 @@ MayBe.prototype.join = function () {
     return this.isNothing() ? MayBe.of(null) : this.value;
 }
 
+let a3 = MayBe.of("string").map((x)=> x.toUpperCase());
+console.log(a3);
+
+let a4 = MayBe.of(null).map((x)=> x.toUpperCase());
+console.log(a4);
+
+let a5 = MayBe.of("George").map((x)=> x.toUpperCase()).map((x)=>"Mr. "+x);
+console.log(a5);
+
 let joinExample = MayBe.of(MayBe.of(5));
 console.log(joinExample);
 

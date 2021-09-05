@@ -66,6 +66,15 @@ const once = (fn) => {
     }
 }
 
+let init_data = once(
+    () => {
+        console.log("Initialize data");
+    }
+);
+
+init_data();
+init_data();
+
 let doPayment = once( () =>{
     console.log("Payment has done");
 });
@@ -85,9 +94,14 @@ const memorized = (fn) => {
     return (arg) => {
         lookupTable[arg] || (lookupTable[arg] = fn(arg));
     }
+console.log(factorial(10));
+
+const memo = (fn) => {
+    const cache = {};
+    return (arg) => cache[arg] || (cache[arg] = fn(arg));
 }
 
-let fastFact = memorized(
+let fastFact = memo(
     (n) => {
         if (n<=0){
             return 1;
