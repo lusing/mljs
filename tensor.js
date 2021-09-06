@@ -73,10 +73,57 @@ let a7 = t7.arraySync();
 console.log(a7);
 
 a7.forEach(
-    (x) => { console.log(x);}
+    (x) => { 
+        console.log(x);
+        console.log(x.length);
+    }
 );
 
-let a7_1 = a7.map(function(x){
-    
-});
-console.log(a7_1)
+function forEach2(a, fn){
+    if(a instanceof Array){
+        a.forEach((x) => {
+            forEach2(x, fn);
+        });
+    }else{
+        fn(a);
+    }
+}
+
+
+forEach2(a7, (x)=>{console.log(x)});
+
+function every2(a, fn){
+    if(a instanceof Array){
+        a.forEach((x) => {
+            every2(x, fn);
+        });
+    }else{
+        let r = fn(a);
+        if(r===false){
+            return false;
+        }
+    }
+    return true;
+}
+
+function some2(a, fn){
+    if(a instanceof Array){
+        a.forEach((x) => {
+            let r = some2(x, fn);
+            console.log("r="+r);
+            if(r===true){
+                return true;
+            }
+        });
+    }else{
+        let r = fn(a);
+        //console.log(r);
+        if(r===true){
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(some2(a7, (x)=>{ return(x===0)}));
+
