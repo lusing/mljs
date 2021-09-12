@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      div {
+        color: blue;
+        font-size: 9px;
+      }
+      .class1 {
+        font-size: 20px;
+        animation-name: mov;
+        animation-duration: 4s;
+        animation-delay: 2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        border-radius: 5px;
+        outline-style: dashed;
+        position: relative;
+      }
+      div.class1 {
+        color: red;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .hid{
+          display: none;
+      }
+      @keyframes mov {
+          from {left: 0px; color: yellow; background-color: blue;width:10%;}
+          to {left: 200px; color: red; background-color: white;width:50%; text-shadow: 2px 2px grey};
+      }
+    </style>
+    <script type="text/javascript">
+        var state = true;
+    </script>
+  </head>
+  <body>
+    <div onclick="show()">正常div标记，蓝色，9px</div>
+    <p class="class1">类选择器，20px; &nbsp;</p>
+    <div class="class1">交集选择器，红色，加粗，15px</div>
+    <div id="jing" class="hid">Test</div>
+    <script>
+        function show(){
+            if(state){
+                let a = document.getElementById('jing').style.display='block';
+                state = false;
+            }else{
+                let a = document.getElementById('jing').style.display='none';
+                state = true;
+            }            
+        }
+    </script>
+  </body>
+</html>
