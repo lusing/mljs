@@ -127,3 +127,9 @@ function some2(a, fn){
 
 console.log(some2(a7, (x)=>{ return(x===0)}));
 
+const x01 = tf.tensor1d([1, 1, 1], 'bool');
+x01.all().print();
+
+const x02 = tf.tensor2d([1, 1, 0, 0], [2, 2], 'bool');
+const axis02 = 1;
+x02.all(axis02).print(); 
