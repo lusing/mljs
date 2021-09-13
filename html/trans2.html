@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        #hellocss {
+            background-color: blue;
+            color: yellow;
+            transition: all 10s linear 1s;
+        }
+    </style>
+  </head>
+  <body onload="trans1()">
+    <div>Hello,HTML</div>
+    <div id="hellocss">Hello,CSS</div>
+    <script>
+        function trans1(){
+            let hcss1 = document.getElementById("hellocss");
+            hcss1.style.backgroundColor = "white";
+            hcss1.style.color="red"; 
+        }
+    </script>
+  </body>
+</html>
