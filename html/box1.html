@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+        @keyframes box_change {
+            0% {
+                height: 50px;
+                width: 50px;
+            }
+            50% {
+                height: 200px;
+                width: 50px;
+            }
+            100% {
+                height: 200px;
+                width: 200px;
+            }
+        }
+        .box1 {
+            background-color: blue;
+            color: yellow;
+            opacity: 0.65;
+            animation-name: box_change;
+            animation-duration: 10s;
+            animation-delay: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="box1">Hello Box</div>
+  </body>
+</html>
