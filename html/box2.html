@@ -3,45 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <style>
-        @keyframes box_change {
-            0% {
-                height: 50px;
-                width: 50px;
-                border-style: solid;
-            }
-            50% {
-                height: 200px;
-                width: 50px;
-                border-style: dotted;
-            }
-            100% {
-                height: 200px;
-                width: 200px;
-                border-style: dashed;
-            }
+      @keyframes box_change {
+        0% {
+          height: 50px;
+          width: 50px;
+          border-style: solid;
         }
-        .box1 {
-            background-color: blue;
-            color: yellow;
-            border-width: 5px;
-            
-            border-top-color: #f5222d;
-            border-top-width: 5px;
-            border-bottom-color: #cf1322;
-            border-left-color: #a8071a;
-            border-right-color: #820014;
-            padding: 10px;
-            margin: 15px;
-            animation-name: box_change;
-            animation-duration: 10s;
-            animation-delay: 1s;
-            animation-timing-function: ease;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
+        50% {
+          height: 200px;
+          width: 50px;
+          border-style: dotted;
         }
+        100% {
+          height: 200px;
+          width: 200px;
+          border-style: dashed;
+        }
+      }
+      .box1 {
+        background-color: blue;
+        color: yellow;
+        border-width: 2px;
+        border-top-color: #f5222d;
+        border-bottom-color: #cf1322;
+        border-left-color: #a8071a;
+        border-right-color: #820014;
+        padding: 10px;
+        margin: 15px;
+        animation-name: box_change;
+        animation-duration: 10s;
+        animation-delay: 5s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
     </style>
   </head>
   <body>
-      <div class="box1">Hello Box</div>
+    <div class="box1">Hello Box</div>
   </body>
 </html>
