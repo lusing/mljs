@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @keyframes color_change {
+        0% {
+          background-color: blue;
+          color: yellow;
+          border-radius: 0px;
+          transform: translate(0px, 0px);
+        }
+        50% {
+          background-color: yellowgreen;
+          color: red;
+          transform: translate(0px, 100px);
+        }
+        100% {
+          background-color: palegoldenrod;
+          color: black;
+          border-radius: 100px;
+          transform: translate(100px, 100px);
+        }
+      }
+      #hellocss {
+        width: 200px;
+        height: 150px;
+        animation-name: color_change;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="trans1()">Hello,HTML</div>
+    <div id="hellocss">Hello,CSS</div>
+    <script>
+      function trans1() {
+        let hcss1 = document.getElementById("hellocss");
+        hcss1.style.animationPlayState = "paused";
+      }
+    </script>
+  </body>
+</html>
