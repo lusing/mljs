@@ -1,4 +1,5 @@
 const { batchNorm2d, batchNorm3d } = require("@tensorflow/tfjs-core");
+const { node } = require("@tensorflow/tfjs-node");
 
 class TreeNode {
     constructor(key){
@@ -24,6 +25,41 @@ function insertNode(node, newNode){
     }
 }
 
+function tranverseTree(root){
+    if (root === null){
+        return;
+    }else{
+        if(root.left!==null){
+            tranverseTree(root.left)
+        }
+        console.log(root.key);
+        if(root.right!==null){
+            tranverseTree(root.right);
+        }
+    }
+}
+
+function bfs(root){
+    queue = [];
+    if(root !== null){
+        queue.push(root);
+    }
+
+    result = [];
+    while(queue.length>0){
+        let node = queue.pop();
+        result.push(node.key);
+
+        if(node.left !==null){
+            queue.push(node.left);
+        }
+        if(node.right!==null){
+            queue.push(node.right);
+        }
+    }
+    console.log(result);
+}
+
 class BinarySearchTree{
     constructor(){
         this.root = null;
@@ -37,9 +73,16 @@ class BinarySearchTree{
             insertNode(this.root, newNode);
         }
     }
+
+    walk(){
+        tranverseTree(this.root);
+    }
 }
 
 let bt1 = new BinarySearchTree();
-bt1.insert(1);
-bt1.insert(2);
+bt1.insert(11);
 bt1.insert(3);
+bt1.insert(2);
+bt1.insert(1);
+bt1.walk();
+bfs(bt1.root);
