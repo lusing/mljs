@@ -25,10 +25,36 @@ function partition(list1, start, end) {
     return left;
 }
 
+function swap(list1, pos1, pos2) {
+    let tmp = list1[pos1];
+    list1[pos1] = list1[pos2];
+    list1[pos2] = tmp;
+}
 
-function partition2(list1, start, end){
+
+function partition2(list1, start, end) {
     //取最后一个值为比较基准
     let middle_value = list1[end];
+
+    let left = start;
+    let right = end - 1;
+
+    while (left < right) {
+        while (list1[left] <= middle_value && left < right) {
+            left += 1;
+        }
+        while (list1[right] > middle_value && right > left) {
+            right -= 1;
+        }
+        if (left === right) {
+            break;
+        } else {
+            swap(list1, left, right);
+        }
+    }
+    //console.log(`left=${left},right=${right},end=${end}`);
+    swap(list1, left, end);
+    return left;
 }
 
 
@@ -45,6 +71,7 @@ function qsort(list1, start, end) {
 
 function qsort2(list1, start, end, partition) {
     let middle = partition(list1, start, end);
+    console.log(`start=${start},middle=${middle},end=${end}`);
 
     if (middle - start > 1) {
         qsort2(list1, start, middle - 1, partition);
@@ -58,10 +85,19 @@ let list3 = [];
 list3.push(3);
 list3.push(100);
 list3.push(8, 9, 10);
-list3.push(13,12,7);
+list3.push(13, 12, 7);
+list3.push(25, 26, 27);
 
 console.log(list3);
-qsort2(list3,0,list3.length-1,partition);
+//partition2(list3,0,list3.length - 1);
+qsort2(list3, 0, list3.length - 1, partition2);
 console.log(list3);
 
 
+list4 = [3, 8, 7, 10, 9, 12, 13, 25, 26];
+partition2(list4, 0, list4.length - 1);
+console.log(list4);
+
+list5 = [8, 9, 10, 13, 12];
+partition2(list5, 0, list5.length - 1);
+console.log(list5);
