@@ -98,6 +98,10 @@ list4 = [3, 8, 7, 10, 9, 12, 13, 25, 26];
 partition2(list4, 0, list4.length - 1);
 console.log(list4);
 
-list5 = [8, 9, 10, 13, 12];
+list5 = [3,  8,  7, 10, 9];
 partition2(list5, 0, list5.length - 1);
 console.log(list5);
+
+list6 = [3,  8,  7];
+partition2(list6, 0, list6.length - 1);
+console.log(list6);
