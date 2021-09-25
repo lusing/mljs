@@ -1,4 +1,4 @@
-function partition(list1, start, end) {
+function partition1(list1, start, end) {
     //取最后一个值为比较基准
     let middle_value = list1[end];
 
@@ -33,11 +33,12 @@ function swap(list1, pos1, pos2) {
 
 
 function partition2(list1, start, end) {
+    console.log(`before partition ${list1.slice(start,end+1)}`);
     //取最后一个值为比较基准
     let middle_value = list1[end];
 
     let left = start;
-    let right = end - 1;
+    let right = end;
 
     while (left < right) {
         while (list1[left] <= middle_value && left < right) {
@@ -52,8 +53,8 @@ function partition2(list1, start, end) {
             swap(list1, left, right);
         }
     }
-    //console.log(`left=${left},right=${right},end=${end}`);
-    swap(list1, left, end);
+    console.log(`left=${left},right=${right}`);
+    console.log(`after partition ${list1.slice(start,end+1)}`);
     return left;
 }
 
@@ -76,8 +77,8 @@ function qsort2(list1, start, end, partition) {
     if (middle - start > 1) {
         qsort2(list1, start, middle - 1, partition);
     }
-    if (end - middle > 1) {
-        qsort2(list1, middle + 1, end, partition);
+    if (end - middle > 0) {
+        qsort2(list1, middle, end, partition);
     }
 }
 
@@ -94,14 +95,22 @@ qsort2(list3, 0, list3.length - 1, partition2);
 console.log(list3);
 
 
-list4 = [3, 8, 7, 10, 9, 12, 13, 25, 26];
-partition2(list4, 0, list4.length - 1);
-console.log(list4);
+// list4 = [3,100,8,9,10,13,12,7,25,26];
+// partition2(list4, 0, list4.length - 1);
+// console.log(list4);
 
-list5 = [3,  8,  7, 10, 9];
-partition2(list5, 0, list5.length - 1);
-console.log(list5);
+// list5 = [3,  8,  7, 10, 9];
+// partition2(list5, 0, list5.length - 1);
+// console.log(list5);
 
-list6 = [3,  8,  7];
-partition2(list6, 0, list6.length - 1);
+list6 = [3,  7,  8];
+qsort2(list6, 0, list6.length - 1, partition2);
 console.log(list6);
+
+list7 = [3,  7,  1];
+qsort2(list7, 0, list7.length - 1, partition2);
+console.log(list7);
+
+list8 = [7,3];
+qsort2(list8, 0, list8.length - 1, partition2);
+console.log(list8);
