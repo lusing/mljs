@@ -53,11 +53,32 @@ function partition2(list1, start, end) {
             swap(list1, left, right);
         }
     }
-    console.log(`left=${left},right=${right}`);
+    //console.log(`left=${left},right=${right}`);
     console.log(`after partition ${list1.slice(start,end+1)}`);
     return left;
 }
 
+function partition3(list1, start, end) {
+    console.log(`before partition ${list1.slice(start,end+1)}`);
+    let start2 = start;
+    let start3 = start;
+
+    let middle_value = list1[end];
+
+    while(start3<=end){
+        if(list1[start3]<=middle_value){
+            let length2 = start3 - start2;
+            if(length2 > 0){
+                swap(list1,start2,start3);
+            }
+            start2 += 1;
+        }
+        start3 += 1;
+    }
+    console.log(`after partition ${list1.slice(start,end+1)}`);
+    console.log(`start2=${start2}`);
+    return start2-1;
+}
 
 function qsort(list1, start, end) {
     let middle = partition(list1, start, end);
@@ -72,7 +93,7 @@ function qsort(list1, start, end) {
 
 function qsort2(list1, start, end, partition) {
     let middle = partition(list1, start, end);
-    console.log(`start=${start},middle=${middle},end=${end}`);
+    //console.log(`start=${start},middle=${middle},end=${end}`);
 
     if (middle - start > 1) {
         qsort2(list1, start, middle - 1, partition);
@@ -90,8 +111,7 @@ list3.push(13, 12, 7);
 list3.push(25, 26, 27);
 
 console.log(list3);
-//partition2(list3,0,list3.length - 1);
-qsort2(list3, 0, list3.length - 1, partition2);
+qsort2(list3, 0, list3.length - 1, partition3);
 console.log(list3);
 
 
@@ -104,13 +124,13 @@ console.log(list3);
 // console.log(list5);
 
 list6 = [3,  7,  8];
-qsort2(list6, 0, list6.length - 1, partition2);
+qsort2(list6, 0, list6.length - 1, partition3);
 console.log(list6);
 
 list7 = [3,  7,  1];
-qsort2(list7, 0, list7.length - 1, partition2);
+qsort2(list7, 0, list7.length - 1, partition3);
 console.log(list7);
 
 list8 = [7,3];
-qsort2(list8, 0, list8.length - 1, partition2);
+qsort2(list8, 0, list8.length - 1, partition3);
 console.log(list8);
