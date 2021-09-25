@@ -31,9 +31,10 @@ function swap(list1, pos1, pos2) {
   list1[pos2] = tmp;
 }
 
-function getMiddle(list1, start, end) {
+function getMiddle(start, end) {
   const len = end - start;
-  return list1[start + Math.floor(Math.random() * len)];
+  const pos = start + Math.floor(Math.random() * len);
+  return pos;
 }
 
 function partition2(list1, start, end) {
@@ -64,10 +65,15 @@ function partition2(list1, start, end) {
 
 function partition3(list1, start, end) {
   console.log(`before partition ${list1.slice(start, end + 1)}`);
+
   let start2 = start;
   let start3 = start;
 
-  let middle_value = getMiddle(list1, start, end);
+  let pos = getMiddle(start,end);
+  swap(list1,pos,end);
+
+  let middle_value = list1[end];
+  console.log(`middle value=${middle_value}`);
 
   while (start3 <= end) {
     if (list1[start3] <= middle_value) {
@@ -100,10 +106,10 @@ function qsort2(list1, start, end, partition) {
   //console.log(`start=${start},middle=${middle},end=${end}`);
 
   if (middle - start > 1) {
-    qsort2(list1, start, middle - 1, partition);
+    qsort2(list1, start, middle-1, partition);
   }
-  if (end - middle > 0) {
-    qsort2(list1, middle, end, partition);
+  if (end - middle > 1) {
+    qsort2(list1, middle + 1, end, partition);
   }
 }
 
@@ -126,14 +132,14 @@ console.log(list3);
 // partition2(list5, 0, list5.length - 1);
 // console.log(list5);
 
-list6 = [3, 7, 8];
-qsort2(list6, 0, list6.length - 1, partition3);
-console.log(list6);
+// list6 = [3, 7, 8];
+// qsort2(list6, 0, list6.length - 1, partition3);
+// console.log(list6);
 
-list7 = [3, 7, 1];
-qsort2(list7, 0, list7.length - 1, partition3);
-console.log(list7);
+// list7 = [3, 7, 1];
+// qsort2(list7, 0, list7.length - 1, partition3);
+// console.log(list7);
 
-list8 = [7, 3];
+list8 = [26, 100, 27];
 qsort2(list8, 0, list8.length - 1, partition3);
 console.log(list8);
