@@ -41,5 +41,6 @@ console.log(result.code);
 
 
 const babelParser = require('@babel/parser');
-let ast2 = babelParser.parse(code2, {})
-console.log(ast2);
+let ast3 = babelParser.parse(code2, {})
+console.log(ast3.program.body);
+
