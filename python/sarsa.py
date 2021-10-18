@@ -1,0 +1,10 @@
+import gym
+env = gym.make('Taxi-v2')
+state = env.reset()
+taxirow, taxicol, passloc, destidx = env.unwrapped.decode(state)
+print(taxirow, taxicol, passloc, destidx)
+print('Taxi position:{}'.format([taxirow,taxicol]))
+print('Pass position:{}'.format(env.unwrapped.locs[passloc]))
+print('Dest position:{}'.format(env.unwrapped.locs[destidx]))
+# env.render()
+env.step(1)
