@@ -24,3 +24,5 @@ class PolicyGradient():
         hidden_layer = layers.Dense(units=self.n_units,
                                     activation=self.hidden_activation, use_bias=False,
                                     kernel_initializer=glorot_uniform(seed=42))(input_layer)
+        output_layer = layers.Dense(units=self.n_outputs,
+        activation=self.output_activation,use_bias=False,)
