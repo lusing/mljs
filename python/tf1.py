@@ -35,7 +35,7 @@ class DQN:
         self.model.add(Dense(24, input_dim=self.input_size,activation='tanh'))
         self.model.add(Dense(48, activation='tanh'))
         self.model.add(Dense(self.action_size, activation='linear'))
-        self.model.compile(loss='mse', optimizer=Adam(lr=alpha,decay=alpha_decay))
+        self.model.compile(loss='mse', optimizer=Adam(learning_rate=alpha,decay=alpha_decay))
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.append((state, action, reward, next_state, done))
@@ -84,8 +84,8 @@ class DQN:
                 if e % 100 == 0:
                     print('Episode {}'.format(e))
                 
-                self.replay(self.batch_size)
-                return avg_scores
+            self.replay(self.batch_size)
+            return avg_scores
 
 env_string = 'CartPole-v0'
 agent = DQN(env_string)
