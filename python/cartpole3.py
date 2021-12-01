@@ -1,4 +1,15 @@
-import gym 
+import gym
+import keras 
+
+n_inputs = 4
+
+model = keras.models.Sequential(
+    [
+        keras.layers.Dense(5, activation='elu', input_shape=[n_inputs]),
+        keras.layers.Dense(5, activation='sigmoid'),
+    ]
+)
+
 env = gym.make('CartPole-v1')
 obs = env.reset()
 
