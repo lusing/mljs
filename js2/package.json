@@ -1,7 +1,17 @@
 {
   "dependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/parser": "^7.15.7",
-    "@babel/preset-env": "^7.15.6"
-  }
+    "@babel/core": "*",
+    "@babel/parser": "*",
+    "@babel/preset-env": "*"
+  },
+  "name": "js2",
+  "version": "1.0.0",
+  "main": "acorn.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
