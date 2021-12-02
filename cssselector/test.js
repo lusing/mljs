@@ -1,9 +1,22 @@
 const parser = require('postcss-selector-parser');
 const transform = selectors => {
     selectors.walk(selector => {
-        // do something with the selector
-        console.log(String(selector))
+        console.log(selector)
+        //console.log(selector.type)
     });
 };
 
-const transformed = parser(transform).processSync('p h1 h2 #hello');
+// parser(transform).processSync('p');
+// parser(transform).processSync('.class1');
+// parser(transform).processSync('#id1');
+// parser(transform).processSync('*');
+
+// parser(transform).processSync('p.class2');
+// parser(transform).processSync('div p');
+
+// parser(transform).processSync(':root');
+// parser(transform).processSync('div::after');
+//parser(transform).processSync('p:nth-child(4)');
+// parser(transform).processSync('div > p');
+//parser(transform).processSync('div + p');
+parser(transform).processSync('a[href^="https"]');
