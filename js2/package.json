@@ -1,13 +1,15 @@
 {
   "dependencies": {
     "@babel/core": "*",
+    "@babel/generator": "^7.16.0",
     "@babel/parser": "*",
-    "@babel/preset-env": "*"
+    "@babel/preset-env": "*",
+    "@babel/traverse": "^7.16.3",
+    "@babel/types": "^7.16.0"
   },
   "name": "js2",
   "version": "1.0.0",
   "main": "acorn.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
